@@ -1,4 +1,4 @@
-import quotes from './data';
+import quotes from './data.js';
 
 const quoteElement = document.getElementById('quote');
 const authorElement = document.getElementById('author');

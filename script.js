@@ -4,10 +4,11 @@ const quoteElement = document.getElementById('quote');
 const authorElement = document.getElementById('author');
 const generateBtn = document.getElementById('generate-btn');
 const favoriteBtn = document.getElementById('favorite-btn');
+const favoritesList = document.getElementById('favorites-list'); // Список для фаворитів
 
 // Збереження поточної цитати та обраних цитат
 let currentQuote;
-let favorites = loadFavoritesFromLocalStorage();
+let favorites = []; // Масив для збереження цитат без використання localStorage
 
 // Генерація випадкової цитати
 function generateRandomQuote() {
@@ -23,58 +24,51 @@ function generateRandomQuote() {
 
 // Оновлення тексту кнопки
 function updateFavoriteButton() {
-  if (currentQuote.isFavorite) {
+  if (currentQuote && currentQuote.isFavorite) {
     favoriteBtn.textContent = 'Remove from favorites';
   } else {
     favoriteBtn.textContent = 'Add to favorite';
   }
 }
 
-// Збереження обраних цитат у `localStorage`
-function saveFavoritesToLocalStorage() {
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-}
-
-// Завантаження обраних цитат із `localStorage`
-function loadFavoritesFromLocalStorage() {
-  const savedFavorites = localStorage.getItem('favorites');
-  if (savedFavorites) {
-    const parsedFavorites = JSON.parse(savedFavorites);
-
-    // Синхронізація стану isFavorite
-    parsedFavorites.forEach(favorite => {
-      const quote = quotes.find(quote => quote.id === favorite.id);
-      if (quote) {
-        quote.isFavorite = true;
-      }
-    });
-
-    return parsedFavorites;
-  }
-  return [];
-}
-
 // Додавання або видалення поточної цитати з обраного
 function toggleFavorite() {
   if (currentQuote) {
-    if (currentQuote.isFavorite) {
-      // Якщо вже в обраному, видаляємо
+    const existingFavoriteIndex = favorites.findIndex(
+      quote => quote.id === currentQuote.id,
+    );
+
+    if (existingFavoriteIndex !== -1) {
+      // Якщо цитата вже в обраному, видаляємо її
+      favorites.splice(existingFavoriteIndex, 1);
       currentQuote.isFavorite = false;
-      const index = favorites.findIndex(quote => quote.id === currentQuote.id);
-      if (index !== -1) {
-        favorites.splice(index, 1); // Видаляємо з масиву favorites
-      }
       alert('Цитату видалено з обраного!');
     } else {
-      // Якщо не в обраному, додаємо
-      currentQuote.isFavorite = true;
+      // Якщо цитата не в обраному, додаємо її
       favorites.push(currentQuote);
+      currentQuote.isFavorite = true;
       alert('Цитату додано до обраного!');
     }
-    console.log('Favorites:', favorites); // Для перевірки в консолі
-    saveFavoritesToLocalStorage(); // Зберігаємо у localStorage
+
+    renderFavorites(); // Оновлюємо список карток після зміни
     updateFavoriteButton(); // Оновлюємо текст кнопки
   }
+}
+
+// Функція для рендерингу карток цитат в фаворитах
+function renderFavorites() {
+  favoritesList.innerHTML = ''; // Очищаємо список перед оновленням
+
+  // Рендеримо картки для кожної цитати в фаворитах
+  favorites.forEach(favorite => {
+    const favoriteCard = document.createElement('div');
+    favoriteCard.classList.add('favorite-card');
+    favoriteCard.innerHTML = `
+      <p>"${favorite.quote}"</p>
+      <p>- ${favorite.author}</p>
+    `;
+    favoritesList.appendChild(favoriteCard);
+  });
 }
 
 // Події для кнопок

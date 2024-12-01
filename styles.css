@@ -22,3 +22,30 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.favorites-container {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.favorite-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-card p {
+  margin: 5px 0;
+}

@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: #e6eef0;
   margin: 0;
   padding: 0;
 }
@@ -37,6 +37,10 @@ img {
   height: auto;
 }
 
+.hide {
+  display: none;
+}
+
 .container {
   width: 1440px;
   margin: 0 auto;
@@ -55,6 +59,12 @@ img {
   margin: 0 0 20px 0;
 }
 
+.quotes_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .quotes_generate-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -70,17 +80,10 @@ img {
 }
 
 .quotes_favorite-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #ffffff;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
-}
-
-.quotes_favorite-btn:hover {
-  background-color: #0056b3;
+  background-color: transparent;
+  margin-left: 10px;
 }
 
 .favorites_title {

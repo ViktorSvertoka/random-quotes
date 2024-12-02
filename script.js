@@ -4,6 +4,8 @@ const quoteElement = document.getElementById('quote');
 const authorElement = document.getElementById('author');
 const generateBtn = document.getElementById('generate-btn');
 const favoriteBtn = document.getElementById('favorite-btn');
+const iconBlack = document.querySelector('.quotes_icon-black');
+const iconYellow = document.querySelector('.quotes_icon-yellow');
 const favoritesList = document.getElementById('favorites-list');
 
 let currentQuote;
@@ -21,9 +23,11 @@ function generateRandomQuote() {
 
 function updateFavoriteButton() {
   if (currentQuote && currentQuote.isFavorite) {
-    favoriteBtn.textContent = 'Remove from favorites';
+    iconBlack.classList.add('hide');
+    iconYellow.classList.remove('hide');
   } else {
-    favoriteBtn.textContent = 'Add to favorite';
+    iconBlack.classList.remove('hide');
+    iconYellow.classList.add('hide');
   }
 }
 

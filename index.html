@@ -14,15 +14,21 @@
           Click the button to get a random quote
         </p>
         <p class="quotes_desc" id="author">(Author)</p>
-        <button class="quotes_generate-btn" id="generate-btn">
-          Generate Quote
-        </button>
-        <button class="quotes_favorite-btn" id="favorite-btn">
-          Add to favorite
-        </button>
+        <div class="quotes_wrapper">
+          <button class="quotes_generate-btn" id="generate-btn">
+            Generate Quote
+          </button>
+          <button class="quotes_favorite-btn" id="favorite-btn">
+            <svg class="quotes_icon-black" width="30" height="30">
+              <use href="./sprite.svg#icon-star-black"></use>
+            </svg>
+            <svg class="quotes_icon-yellow hide" width="30" height="30">
+              <use href="./sprite.svg#icon-star-yellow"></use>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
-
     <section class="favorites">
       <div class="container">
         <h2 class="favorites_title">Favorites</h2>

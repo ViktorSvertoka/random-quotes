@@ -15,10 +15,12 @@ function generateRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const randomQuote = quotes[randomIndex];
   currentQuote = randomQuote;
+
   quoteElement.textContent = randomQuote.quote;
   authorElement.textContent = randomQuote.author;
 
   updateFavoriteButton();
+  showFavoriteButton();
 }
 
 function updateFavoriteButton() {
@@ -29,6 +31,10 @@ function updateFavoriteButton() {
     iconBlack.classList.remove('hide');
     iconYellow.classList.add('hide');
   }
+}
+
+function showFavoriteButton() {
+  favoriteBtn.classList.remove('hide');
 }
 
 function toggleFavorite() {
@@ -68,5 +74,7 @@ function renderFavorites() {
 
 generateBtn.addEventListener('click', generateRandomQuote);
 favoriteBtn.addEventListener('click', toggleFavorite);
+
+favoriteBtn.classList.add('hide');
 
 // generateRandomQuote();

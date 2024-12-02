@@ -43,7 +43,19 @@ img {
   text-align: center;
 }
 
-.btn {
+.quotes_title {
+  margin: 50px 0;
+}
+
+.quotes_slogan {
+  margin: 0 0 20px 0;
+}
+
+.quotes_desc {
+  margin: 0 0 20px 0;
+}
+
+.quotes_generate-btn {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #007bff;
@@ -53,26 +65,48 @@ img {
   border-radius: 5px;
 }
 
-.btn:hover {
+.quotes_generate-btn:hover {
   background-color: #0056b3;
 }
 
-.favorites-container {
-  text-align: center;
+.quotes_favorite-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.favorites-list {
+.quotes_favorite-btn:hover {
+  background-color: #0056b3;
+}
+
+.favorites_title {
+  margin: 50px 0;
+}
+
+.favorites_list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
 }
 
-.favorite-card {
+.favorites_card {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 200px;
+  width: 25%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px;
+}
+
+.favorites_slogan {
+  margin-bottom: 20px;
+}
+
+.favorites_desc {
 }

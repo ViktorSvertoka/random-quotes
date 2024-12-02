@@ -7,18 +7,28 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Random Quotes</h1>
-      <p id="quote">Click the button to get a random quote</p>
-      <p id="author">(Author)</p>
-      <button id="generate-btn" class="btn">Generate Quote</button>
-      <button id="favorite-btn" class="btn">Add to favorite</button>
-    </div>
+    <section class="quotes">
+      <div class="container">
+        <h1 class="quotes_title">Random Quotes</h1>
+        <p class="quotes_slogan" id="quote">
+          Click the button to get a random quote
+        </p>
+        <p class="quotes_desc" id="author">(Author)</p>
+        <button class="quotes_generate-btn" id="generate-btn">
+          Generate Quote
+        </button>
+        <button class="quotes_favorite-btn" id="favorite-btn">
+          Add to favorite
+        </button>
+      </div>
+    </section>
 
-    <div class="favorites-container">
-      <h2>Favorites</h2>
-      <div id="favorites-list" class="favorites-list"></div>
-    </div>
+    <section class="favorites">
+      <div class="container">
+        <h2 class="favorites_title">Favorites</h2>
+        <ul class="favorites_list" id="favorites-list"></ul>
+      </div>
+    </section>
 
     <script src="./script.js" type="module"></script>
   </body>
